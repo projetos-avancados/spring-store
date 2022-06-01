@@ -2,6 +2,7 @@ package com.vinigui.loja.dto;
 
 import com.vinigui.loja.model.Departamento;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DepartamentoDTO {
@@ -19,10 +20,15 @@ public class DepartamentoDTO {
     }
 
     public DepartamentoDTO(Departamento departamento) {
+
         this.id = departamento.getId();
         this.nome = departamento.getNome();
-        // TODO: 6/1/2022  
-        //Precisa converter a lista de produto para listaDTO
+        this.listaDeProdutos = new ArrayList<>();
+            departamento.getListaDeProdutos().forEach(e -> {
+                ProdutoDTO prod = new ProdutoDTO(e);
+                this.listaDeProdutos.add(prod);
+            });
+
     }
 
     public Long getId() {
