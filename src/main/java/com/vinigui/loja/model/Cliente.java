@@ -1,5 +1,6 @@
 package com.vinigui.loja.model;
 
+import com.vinigui.loja.dto.ClienteDTO;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 
@@ -21,6 +22,11 @@ public class Cliente extends Pessoa{
         super(nome, cpf);
         this.id = id;
         this.endereco = endereco;
+    }
+
+    public Cliente(ClienteDTO clienteDTO){
+        this.id = clienteDTO.getId();
+        this.endereco = new Endereco(clienteDTO.getEnderecoDTO());
     }
 
     public Long getId() {

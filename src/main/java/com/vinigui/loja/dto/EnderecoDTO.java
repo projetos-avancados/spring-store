@@ -1,7 +1,11 @@
 package com.vinigui.loja.dto;
 
 import com.vinigui.loja.model.Endereco;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 
+@Builder
+@EqualsAndHashCode
 public class EnderecoDTO {
     private Long id;
     private String rua;
