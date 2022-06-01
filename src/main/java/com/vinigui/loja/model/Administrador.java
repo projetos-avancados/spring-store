@@ -1,5 +1,6 @@
 package com.vinigui.loja.model;
 
+import com.vinigui.loja.dto.AdministradorDTO;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 
@@ -17,11 +18,18 @@ public class Administrador extends Pessoa{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Administrador(String nome, String cpf) {
+    public Administrador(Long id, String nome, String cpf) {
         super(nome, cpf);
+        this.id = id;
     }
 
-    public Administrador() {
+    public Administrador() {}
 
+    public Administrador(AdministradorDTO administradorDTO) {
+        super(administradorDTO.getNome(), administradorDTO.getCpf());
+        this.id = administradorDTO.getId();
+    }
+    public Long getId() {
+        return id;
     }
 }

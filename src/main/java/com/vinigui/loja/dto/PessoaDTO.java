@@ -1,19 +1,17 @@
-package com.vinigui.loja.model;
+package com.vinigui.loja.dto;
 
-import lombok.*;
+import com.vinigui.loja.model.Pessoa;
 
-@EqualsAndHashCode
-@Builder
-public abstract class Pessoa {
+public abstract class PessoaDTO {
     private String nome;
     private String cpf;
 
-    public Pessoa(String nome, String cpf) {
+    public PessoaDTO(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }
 
-    public Pessoa() {}
+    public PessoaDTO() {}
 
     public String getNome() {
         return nome;
@@ -23,13 +21,14 @@ public abstract class Pessoa {
         this.nome = nome;
     }
 
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
 
 
 }

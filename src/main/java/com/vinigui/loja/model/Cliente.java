@@ -23,6 +23,10 @@ public class Cliente extends Pessoa{
         this.endereco = endereco;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public Endereco getEndereco() {
         return endereco;
     }
@@ -32,6 +36,7 @@ public class Cliente extends Pessoa{
     }
 
     public Cliente() {
+        super();
 
     }
 }

@@ -1,22 +1,8 @@
-package com.vinigui.loja.model;
+package com.vinigui.loja.dto;
 
+import com.vinigui.loja.model.Endereco;
 
-import com.vinigui.loja.dto.EnderecoDTO;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@EqualsAndHashCode
-@Builder
-@Entity
-public class Endereco {
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+public class EnderecoDTO {
     private Long id;
     private String rua;
     private String bairro;
@@ -25,8 +11,7 @@ public class Endereco {
     private Integer numero;
     private String cep;
 
-
-    public Endereco(Long id, String rua, String bairro, String cidade, String estado, Integer numero, String cep) {
+    public EnderecoDTO(Long id, String rua, String bairro, String cidade, String estado, Integer numero, String cep) {
         this.id = id;
         this.rua = rua;
         this.bairro = bairro;
@@ -36,17 +21,17 @@ public class Endereco {
         this.cep = cep;
     }
 
-    public Endereco() {
+    public EnderecoDTO(Endereco endereco){
+        this.id = endereco.getId();
+        this.rua = endereco.getRua();
+        this.bairro = endereco.getBairro();
+        this.cidade = endereco.getCidade();
+        this.estado = endereco.getEstado();
+        this.numero = endereco.getNumero();
+        this.cep = endereco.getCep();
     }
 
-    public Endereco(EnderecoDTO enderecoDTO){
-        this.id = enderecoDTO.getId();
-        this.rua = enderecoDTO.getRua();
-        this.bairro = enderecoDTO.getBairro();
-        this.cidade = getCidade();
-        this.estado = getEstado();
-        this.numero = getNumero();
-        this.cep = getCep();
+    public EnderecoDTO() {
     }
 
     public Long getId() {
