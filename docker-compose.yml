@@ -1,0 +1,29 @@
+version: '3.7'
+volumes:
+  database:
+
+services:
+  db:
+    image: mariadb:latest
+    container_name: loja-do-gui
+    ports:
+      - 3306:3306
+    volumes:
+      - database:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=loja-do-gui
+      - MYSQL_DATABASE=loja-do-gui
+      - MYSQL_USER=loja-do-gui
+      - MYSQL_PASSWORD=loja-do-gui
+
+  phpMyAdmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: loja-do-gui-phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+    links:
+      - db
+    ports:
+      - 80:80
+    volumes:
+      - /sessions
