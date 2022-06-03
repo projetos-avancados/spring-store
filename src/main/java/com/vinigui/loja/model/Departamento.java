@@ -1,9 +1,12 @@
 package com.vinigui.loja.model;
 
+import com.vinigui.loja.dto.DepartamentoDTO;
+import com.vinigui.loja.dto.ProdutoDTO;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,6 +27,16 @@ public class Departamento {
         this.id = id;
         this.nome = nome;
         this.listaDeProdutos = listaDeProdutos;
+    }
+
+    public Departamento(DepartamentoDTO departamentoDTO) {
+        this.id = departamentoDTO.getId();
+        this.nome = departamentoDTO.getNome();
+        this.listaDeProdutos = new ArrayList<>();
+        departamentoDTO.getListaDeProdutos().forEach(e -> {
+            Produto prod = new Produto(e);
+            this.listaDeProdutos.add(prod);
+        });
     }
 
     public Long getId() {

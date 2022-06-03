@@ -1,5 +1,6 @@
 package com.vinigui.loja.model;
 
+import com.vinigui.loja.dto.ItemDTO;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 
@@ -24,6 +25,12 @@ public class Item {
         this.id = id;
         this.produto = produto;
         this.quantidade = quantidade;
+    }
+
+    public Item(ItemDTO itemDTO) {
+        this.id = itemDTO.getId();
+        this.produto = new Produto(itemDTO.getProduto());
+        this.quantidade = itemDTO.getQuantidade();
     }
 
     public Long getId() {

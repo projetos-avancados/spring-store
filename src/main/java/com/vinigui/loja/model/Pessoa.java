@@ -1,5 +1,6 @@
 package com.vinigui.loja.model;
 
+import com.vinigui.loja.dto.PessoaDTO;
 import lombok.*;
 
 @EqualsAndHashCode
@@ -14,6 +15,11 @@ public abstract class Pessoa {
     }
 
     public Pessoa() {}
+
+    public Pessoa(PessoaDTO pessoaDTO) {
+        this.nome = pessoaDTO.getNome();
+        this.cpf = pessoaDTO.getCpf();
+    }
 
     public String getNome() {
         return nome;

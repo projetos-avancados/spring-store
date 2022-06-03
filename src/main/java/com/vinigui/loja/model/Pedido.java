@@ -1,5 +1,7 @@
 package com.vinigui.loja.model;
 
+import com.vinigui.loja.dto.PedidoDTO;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,6 +23,12 @@ public class Pedido {
         this.id = id;
         this.itens = itens;
         this.dataHoraDoPedido = dataHoraDoPedido;
+    }
+
+    public Pedido(PedidoDTO pedidoDTO) {
+        this.id = pedidoDTO.getId();
+        this.itens = pedidoDTO.getItens();
+        this.dataHoraDoPedido = pedidoDTO.getDataHoraDoPedido();
     }
 
     public Long getId() {
