@@ -4,7 +4,6 @@ import com.vinigui.loja.dto.PessoaDTO;
 import lombok.*;
 
 @EqualsAndHashCode
-@Builder
 public abstract class Pessoa {
     private String nome;
     private String cpf;

@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Builder
 @EqualsAndHashCode
 public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)

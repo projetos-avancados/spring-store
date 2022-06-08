@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Builder
 @EqualsAndHashCode
 public class Departamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)

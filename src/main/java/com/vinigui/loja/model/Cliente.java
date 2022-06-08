@@ -7,7 +7,6 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.*;
 
 @Entity
-@Builder
 @EqualsAndHashCode
 public class Cliente extends Pessoa{
 
