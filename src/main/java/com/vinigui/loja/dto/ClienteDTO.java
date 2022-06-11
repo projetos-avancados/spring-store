@@ -2,24 +2,24 @@ package com.vinigui.loja.dto;
 
 import com.vinigui.loja.model.Cliente;
 
-public class ClienteDTO extends PessoaDTO{
+public class ClienteDTO {
     private Long id;
     private EnderecoDTO enderecoDTO;
-
-    public ClienteDTO(Long id, String nome, String cpf, EnderecoDTO enderecoDTO) {
-        super(nome, cpf);
-        this.id = id;
-        this.enderecoDTO = enderecoDTO;
-    }
+    private InformacoesPessoaisDTO informacoesPessoaisDTO;
 
     public ClienteDTO() {}
 
-    public ClienteDTO(Cliente cliente){
-        super(cliente.getNome(), cliente.getCpf());
-        this.id = cliente.getId();
-        this.enderecoDTO = new EnderecoDTO(cliente.getEndereco());
+    public ClienteDTO(Long id, InformacoesPessoaisDTO informacoesPessoaisDTO, EnderecoDTO enderecoDTO) {
+        this.id = id;
+        this.informacoesPessoaisDTO = informacoesPessoaisDTO;
+        this.enderecoDTO = enderecoDTO;
     }
 
+    public ClienteDTO(Cliente cliente){
+        this.id = cliente.getId();
+        this.enderecoDTO = new EnderecoDTO(cliente.getEndereco());
+        this.informacoesPessoaisDTO = new InformacoesPessoaisDTO(cliente.getInformacoesPessoais());
+    }
 
     public Long getId() {
         return id;
@@ -31,5 +31,9 @@ public class ClienteDTO extends PessoaDTO{
 
     public void setEnderecoDTO(EnderecoDTO enderecoDTO) {
         this.enderecoDTO = enderecoDTO;
+    }
+
+    public InformacoesPessoaisDTO getInformacoesPessoaisDTO(){
+        return this.informacoesPessoaisDTO;
     }
 }

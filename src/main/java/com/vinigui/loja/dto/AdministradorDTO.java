@@ -2,23 +2,27 @@ package com.vinigui.loja.dto;
 
 import com.vinigui.loja.model.Administrador;
 
-public class AdministradorDTO extends PessoaDTO{
+public class AdministradorDTO {
     private Long id;
-
-    public AdministradorDTO(Long id, String nome, String cpf) {
-        super(nome, cpf);
-        this.id = id;
-    }
+    private InformacoesPessoaisDTO informacoesPessoaisDTO;
 
     public AdministradorDTO () {}
 
+    public AdministradorDTO(Long id, InformacoesPessoaisDTO informacoesPessoaisDTO) {
+        this.id = id;
+        this.informacoesPessoaisDTO = informacoesPessoaisDTO;
+    }
+
     public AdministradorDTO (Administrador administrador) {
-        super(administrador.getNome(), administrador.getCpf());
         this.id = administrador.getId();
+        this.informacoesPessoaisDTO = new InformacoesPessoaisDTO(administrador.getInformacoesPessoais());
     }
 
     public Long getId() {
         return id;
     }
 
+    public InformacoesPessoaisDTO getInformacoesPessoaisDTO() {
+        return informacoesPessoaisDTO;
+    }
 }

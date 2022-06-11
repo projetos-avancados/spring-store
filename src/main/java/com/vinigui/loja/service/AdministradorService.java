@@ -24,4 +24,9 @@ public class AdministradorService {
         return new AdministradorDTO(administrador.get());
     }
 
+    public AdministradorDTO salvarAdministrador(AdministradorDTO administradorDTO) {
+        Administrador administrador = new Administrador(administradorDTO);
+        return new AdministradorDTO(administradorRepository.save(administrador));
+    }
+
 }
