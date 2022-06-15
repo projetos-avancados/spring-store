@@ -2,6 +2,8 @@ package com.vinigui.loja.dto;
 
 import com.vinigui.loja.model.InformacoesPessoais;
 
+import java.util.Objects;
+
 public class InformacoesPessoaisDTO {
     private Long id;
     private String nome;
@@ -36,6 +38,16 @@ public class InformacoesPessoaisDTO {
         return cpf;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InformacoesPessoaisDTO that = (InformacoesPessoaisDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(nome, that.nome) && Objects.equals(cpf, that.cpf);
+    }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, cpf);
+    }
 }

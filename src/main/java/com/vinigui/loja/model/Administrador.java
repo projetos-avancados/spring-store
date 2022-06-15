@@ -16,7 +16,6 @@ public class Administrador {
     private Long id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "informacoes_pessoais_id", referencedColumnName = "id")
     private InformacoesPessoais informacoesPessoais;
 
 
@@ -38,4 +37,6 @@ public class Administrador {
     public InformacoesPessoais getInformacoesPessoais() {
         return informacoesPessoais;
     }
+
+
 }

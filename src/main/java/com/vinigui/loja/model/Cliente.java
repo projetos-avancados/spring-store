@@ -20,7 +20,7 @@ public class Cliente {
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
-    @JoinColumn(name = "informacoes_pessoais", referencedColumnName = "id")
+    @OneToOne
     private InformacoesPessoais informacoesPessoais;
 
     public Cliente() {}
