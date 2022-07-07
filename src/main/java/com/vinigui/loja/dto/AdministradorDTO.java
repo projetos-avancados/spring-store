@@ -1,10 +1,12 @@
 package com.vinigui.loja.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vinigui.loja.model.Administrador;
 
 import java.util.Objects;
 
 public class AdministradorDTO {
+    @JsonIgnore
     private Long id;
     private InformacoesPessoaisDTO informacoesPessoaisDTO;
 
