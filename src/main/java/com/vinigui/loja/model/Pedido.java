@@ -1,14 +1,16 @@
 package com.vinigui.loja.model;
 
 import com.vinigui.loja.dto.PedidoDTO;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Entity
+@Builder
+@EqualsAndHashCode
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

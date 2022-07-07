@@ -1,24 +1,45 @@
 package com.vinigui.loja.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vinigui.loja.model.Administrador;
 
-public class AdministradorDTO extends PessoaDTO{
-    private Long id;
+import java.util.Objects;
 
-    public AdministradorDTO(Long id, String nome, String cpf) {
-        super(nome, cpf);
-        this.id = id;
-    }
+public class AdministradorDTO {
+    @JsonIgnore
+    private Long id;
+    private InformacoesPessoaisDTO informacoesPessoaisDTO;
 
     public AdministradorDTO () {}
 
+    public AdministradorDTO(Long id, InformacoesPessoaisDTO informacoesPessoaisDTO) {
+        this.id = id;
+        this.informacoesPessoaisDTO = informacoesPessoaisDTO;
+    }
+
     public AdministradorDTO (Administrador administrador) {
-        super(administrador.getNome(), administrador.getCpf());
         this.id = administrador.getId();
+        this.informacoesPessoaisDTO = new InformacoesPessoaisDTO(administrador.getInformacoesPessoais());
     }
 
     public Long getId() {
         return id;
     }
 
+    public InformacoesPessoaisDTO getInformacoesPessoaisDTO() {
+        return informacoesPessoaisDTO;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AdministradorDTO that = (AdministradorDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(informacoesPessoaisDTO, that.informacoesPessoaisDTO);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, informacoesPessoaisDTO);
+    }
 }

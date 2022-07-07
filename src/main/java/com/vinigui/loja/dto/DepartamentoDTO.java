@@ -4,6 +4,7 @@ import com.vinigui.loja.model.Departamento;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DepartamentoDTO {
     private Long id;
@@ -49,5 +50,18 @@ public class DepartamentoDTO {
 
     public void setListaDeProdutos(List<ProdutoDTO> listaDeProdutos) {
         this.listaDeProdutos = listaDeProdutos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DepartamentoDTO that = (DepartamentoDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(nome, that.nome) && Objects.equals(listaDeProdutos, that.listaDeProdutos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, listaDeProdutos);
     }
 }
