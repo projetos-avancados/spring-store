@@ -6,7 +6,7 @@ import com.vinigui.loja.model.Administrador;
 import java.util.Objects;
 
 public class AdministradorDTO {
-    @JsonIgnore
+
     private Long id;
     private InformacoesPessoaisDTO informacoesPessoaisDTO;
 
@@ -28,6 +28,10 @@ public class AdministradorDTO {
 
     public InformacoesPessoaisDTO getInformacoesPessoaisDTO() {
         return informacoesPessoaisDTO;
+    }
+
+    public void setInformacoesPessoaisDTO(InformacoesPessoaisDTO informacoesPessoaisDTO) {
+        this.informacoesPessoaisDTO = informacoesPessoaisDTO;
     }
 
     @Override

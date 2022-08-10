@@ -34,4 +34,16 @@ public class AdministradorController {
     public ResponseEntity<List<AdministradorDTO>> listarTodosAdministradores(){
         return new ResponseEntity<List<AdministradorDTO>>(this.administradorService.buscarTodosAdministradores(), HttpStatus.ACCEPTED);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<AdministradorDTO> removerAdministrador(@PathVariable("id") Long id){
+        this.administradorService.excluirAdministrador(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<AdministradorDTO> atualizarAdministrador(@RequestBody @Valid AdministradorDTO administradorDTO){
+        AdministradorDTO admin = administradorService.alterarAdministrador(administradorDTO);
+        return ResponseEntity.ok(admin);
+    }
 }
